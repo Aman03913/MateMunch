@@ -1,5 +1,6 @@
 package com.example.munchmate
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.ContactsContract.CommonDataKinds.Phone
@@ -8,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class PayOutActivity : AppCompatActivity() {
@@ -28,11 +30,24 @@ class PayOutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPayOutBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
         //initialise firebase
         auth=FirebaseAuth.getInstance()
+        databaseReference = FirebaseDatabase.getInstance().reference
+
         //setuserData
         SetUserData()
+        //getuserDetails from firebase
+        val intent=intent
+        foodItemName=intent.getStringArrayListExtra("FoodItemName") as ArrayList<String>
+        foodItemPrice=intent.getStringArrayListExtra("FoodItemName") as ArrayList<String>
+        foodItemDescription=intent.getStringArrayListExtra("FoodItemName") as ArrayList<String>
+        foodItemIngredient=intent.getStringArrayListExtra("FoodItemName") as ArrayList<String>
+
+
+
+
         binding.placeMyOrderButton.setOnClickListener {
             val bottomSheetDialog = CongratsBottomSheet()
             bottomSheetDialog.show(supportFragmentManager,"test")

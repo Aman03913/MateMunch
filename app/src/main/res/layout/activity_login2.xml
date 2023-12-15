@@ -156,10 +156,21 @@
         android:id="@+id/donthavebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="16dp"
         android:text="Don't have an account?"
         android:textColor="#3FA42F"
         android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/loginOtp"
+        app:layout_constraintStart_toStartOf="@+id/loginOtp"
+        app:layout_constraintTop_toBottomOf="@+id/loginOtp" />
+
+    <TextView
+        android:id="@+id/loginOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Login With OTP"
+        android:textColor="@color/textcolor"
         app:layout_constraintEnd_toEndOf="@+id/loginbtn"
         app:layout_constraintStart_toStartOf="@+id/loginbtn"
         app:layout_constraintTop_toBottomOf="@+id/loginbtn" />

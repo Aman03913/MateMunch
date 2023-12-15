@@ -43,6 +43,10 @@ class LoginActivity2 : AppCompatActivity() {
             val intent = Intent(this,SignActivity::class.java)
             startActivity(intent)
         }
+        binding.loginOtp.setOnClickListener {
+            val i=Intent(this,ActivityPhone::class.java)
+            startActivity(i)
+        }
     }
 
     private fun createUser() {
